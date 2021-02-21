@@ -14,6 +14,10 @@ export const ActionCreator = {
     type: ActionType.CHANGE_SORTING,
     payload: data
   }),
+  changePage: (data) => ({
+    type: ActionType.CHANGE_PAGE,
+    payload: data
+  }),
   changeFilter: (data) => ({
     type: ActionType.CHANGE_FILTER,
     payload: data

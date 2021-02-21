@@ -70,7 +70,7 @@ td[data-sort="DESC"] {
 
 td[data-sort="ASC"]::after {
   position: absolute;
-  top: 18px;
+  top: 20px;
   right: 10px;
   content: "";
   width: 15px;
@@ -81,7 +81,7 @@ td[data-sort="ASC"]::after {
 
 td[data-sort="DESC"]::after {
   position: absolute;
-  top: 18px;
+  top: 20px;
   right: 10px;
   content: "";
   width: 15px;
@@ -92,6 +92,10 @@ td[data-sort="DESC"]::after {
 
 thead td {
   padding-right: 30px;
+  font-weight: bold;
+  font-size: 1.2rem;
+  cursor: pointer;
+
 }
 
 div.table {

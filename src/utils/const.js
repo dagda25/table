@@ -9,7 +9,7 @@ export const APIRoute = {
 };
 
 export const settings = {
-  FETCH_COUNT: 30,
+  ITEMS_ON_PAGE: 30,
 };
 
 

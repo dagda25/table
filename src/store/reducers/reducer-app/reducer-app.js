@@ -12,14 +12,14 @@ const initialState = {
 
 };
 
-const sortData = (state, column) => {
-  const newState = JSON.parse(JSON.stringify(state));
+const sortData = (state, data, column) => {
+  const newState = JSON.parse(JSON.stringify(data));
   if (state.numberColumns.includes(column)) {
-    newState.data.sort((a, b) => {
+    newState.sort((a, b) => {
       return state.sortOrder === `ASC` ? a[column] - b[column] : b[column] - a[column];
     });
   } else {
-    newState.data.sort((a, b) => {
+    newState.sort((a, b) => {
       if (state.sortOrder === `ASC`) {
         return a[column].localeCompare(b[column], `default`, {caseFirst: `upper`});
       } else {
@@ -27,7 +27,7 @@ const sortData = (state, column) => {
       }
     });
   }
-  return newState.data;
+  return newState;
 };
 
 const filterData = (state, string) => {
@@ -56,13 +56,20 @@ const reducerApp = (state = initialState, action) => {
     case ActionType.CHANGE_FILTER:
       return Object.assign({}, state, {
         filterString: action.payload,
-        filteredData: filterData(state, action.payload)
+        filteredData: filterData(state, action.payload),
+        currentPage: 1,
+      });
+    case ActionType.CHANGE_PAGE:
+      return Object.assign({}, state, {
+        currentPage: action.payload,
       });
     case ActionType.CHANGE_SORTING:
       return Object.assign({}, state, {
         sortColumn: action.payload,
         sortOrder: state.sortOrder === `DESC` ? `ASC` : `DESC`,
-        data: sortData(state, action.payload)
+        currentPage: 1,
+        data: sortData(state, state.data, action.payload),
+        filteredData: sortData(state, state.filteredData, action.payload),
       });
     default:
       return state;
