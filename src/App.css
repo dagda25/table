@@ -93,6 +93,11 @@ td[data-sort="DESC"]::after {
 thead td {
   padding-right: 30px;
 }
+
+div.table {
+  max-width: 1024px;
+  margin: 0 auto;
+}
 /*
 .menu-list {
   display: none;

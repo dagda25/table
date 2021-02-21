@@ -4,12 +4,17 @@ import TableRow from "../table-row/table-row";
 
 
 const TableBody = (props) => {
-  const {data} = props;
+  const {data, filterString, filteredData} = props;
   return (
     <tbody>
-      {data.map((row, index) => {
-        return <TableRow row={row} key={row.id || index}/>;
-      })}
+      {filterString ?
+        filteredData.map((row, index) => {
+          return <TableRow row={row} key={row.id || index}/>;
+        }) :
+        data.map((row, index) => {
+          return <TableRow row={row} key={row.id || index}/>;
+        })
+      }
     </tbody>
   );
 };
@@ -17,6 +22,8 @@ const TableBody = (props) => {
 
 const mapStateToProps = ({APP}) => ({
   data: APP.data,
+  filteredData: APP.filteredData,
+  filterString: APP.filterString,
 });
 
 const mapDispatchToProps = () => ({

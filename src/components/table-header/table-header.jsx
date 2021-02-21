@@ -1,7 +1,6 @@
 import React from "react";
 import {connect} from "react-redux";
 import {ActionCreator} from "../../store/action";
-import store from "../../store/store";
 
 
 const TableHeader = (props) => {
@@ -15,8 +14,7 @@ const TableHeader = (props) => {
   }
 
   const sort = (evt) => {
-    console.log(evt.target.dataset.name);
-    store.dispatch(changeSorting(evt.target.dataset.name));
+    changeSorting(evt.target.dataset.name);
   };
 
 
