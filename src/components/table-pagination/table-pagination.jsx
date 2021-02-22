@@ -11,6 +11,7 @@ const TablePagination = (props) => {
   const pageCount = filteredData.length ? Math.ceil(filteredData.length / settings.ITEMS_ON_PAGE) : Math.ceil(data.length / settings.ITEMS_ON_PAGE);
 
   const handleClick = (evt) => {
+    evt.preventDefault();
     if (evt.target.dataset.page !== currentPage) {
       changePage(+evt.target.dataset.page);
     }
@@ -21,7 +22,7 @@ const TablePagination = (props) => {
   return (
     <ul className="pagination">
       {[...Array(pageCount)].map((x, i) =>
-        <li className={currentPage === i + 1 ? `active` : `waves-effect`} key={i}><a href="#!" onClick={handleClick} data-page={i + 1}>{i + 1}</a></li>
+        <li className={currentPage === i + 1 ? `active` : `waves-effect`} key={i}><a href={`page` + (i + 1)} onClick={handleClick} data-page={i + 1}>{i + 1}</a></li>
       )}
     </ul>
   );
