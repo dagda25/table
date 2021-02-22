@@ -8,7 +8,16 @@ import PropTypes from "prop-types";
 const TablePagination = (props) => {
 
   const {data, currentPage, filteredData, changePage} = props;
-  const pageCount = filteredData.length ? Math.ceil(filteredData.length / settings.ITEMS_ON_PAGE) : Math.ceil(data.length / settings.ITEMS_ON_PAGE);
+
+  let pageCount;
+
+  if (!filteredData) {
+    pageCount = Math.ceil(data.length / settings.ITEMS_ON_PAGE);
+  } else if (filteredData && !filteredData.length) {
+    pageCount = 1;
+  } else {
+    pageCount = filteredData && filteredData.length ? Math.ceil(filteredData.length / settings.ITEMS_ON_PAGE) : Math.ceil(data.length / settings.ITEMS_ON_PAGE);
+  }
 
   const handleClick = (evt) => {
     evt.preventDefault();
@@ -31,7 +40,7 @@ const TablePagination = (props) => {
 TablePagination.propTypes = {
   data: PropTypes.array.isRequired,
   currentPage: PropTypes.number.isRequired,
-  filteredData: PropTypes.array.isRequired,
+  filteredData: PropTypes.array,
   changePage: PropTypes.func.isRequired,
 };
 

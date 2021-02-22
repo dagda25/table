@@ -25,7 +25,7 @@ const TableBody = (props) => {
 TableBody.propTypes = {
   data: PropTypes.array.isRequired,
   filterString: PropTypes.string,
-  filteredData: PropTypes.array.isRequired,
+  filteredData: PropTypes.array,
   currentPage: PropTypes.number.isRequired,
 };
 

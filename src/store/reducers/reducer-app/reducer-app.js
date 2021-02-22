@@ -7,13 +7,16 @@ const initialState = {
   sortColumn: null,
   sortOrder: `DESC`,
   filterString: null,
-  filteredData: [],
+  filteredData: null,
   numberColumns: [`userId`, `id`]
 
 };
 
 const sortData = (state, data, column) => {
-  const newState = JSON.parse(JSON.stringify(data));
+  let newState = JSON.parse(JSON.stringify(data));
+  if (!newState) {
+    newState = [];
+  }
   if (state.numberColumns.includes(column)) {
     newState.sort((a, b) => {
       return state.sortOrder === `ASC` ? a[column] - b[column] : b[column] - a[column];
