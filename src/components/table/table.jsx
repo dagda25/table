@@ -21,9 +21,7 @@ const Table = () => {
 };
 
 
-const mapStateToProps = ({APP}) => ({
-  items: APP.items,
-  currentItem: APP.currentItem,
+const mapStateToProps = () => ({
 });
 
 const mapDispatchToProps = () => ({

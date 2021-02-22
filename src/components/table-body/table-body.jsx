@@ -2,6 +2,7 @@ import React from "react";
 import {connect} from "react-redux";
 import TableRow from "../table-row/table-row";
 import {settings} from "../../utils/const";
+import PropTypes from "prop-types";
 
 
 const TableBody = (props) => {
@@ -21,6 +22,12 @@ const TableBody = (props) => {
   );
 };
 
+TableBody.propTypes = {
+  data: PropTypes.array.isRequired,
+  filterString: PropTypes.string,
+  filteredData: PropTypes.array.isRequired,
+  currentPage: PropTypes.number.isRequired,
+};
 
 const mapStateToProps = ({APP}) => ({
   data: APP.data,

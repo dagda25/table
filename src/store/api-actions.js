@@ -1,6 +1,5 @@
 import {ActionCreator} from "./action";
-import {AppRoute, APIRoute} from "../utils/const";
-import {settings} from "../utils/const";
+import {APIRoute} from "../utils/const";
 
 export const fetchData = () => (dispatch, _getState, api) => (
   api.get(APIRoute.POSTS)

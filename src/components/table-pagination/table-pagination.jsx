@@ -2,6 +2,7 @@ import React from "react";
 import {connect} from "react-redux";
 import {ActionCreator} from "../../store/action";
 import {settings} from "../../utils/const";
+import PropTypes from "prop-types";
 
 
 const TablePagination = (props) => {
@@ -24,6 +25,13 @@ const TablePagination = (props) => {
       )}
     </ul>
   );
+};
+
+TablePagination.propTypes = {
+  data: PropTypes.array.isRequired,
+  currentPage: PropTypes.number.isRequired,
+  filteredData: PropTypes.array.isRequired,
+  changePage: PropTypes.func.isRequired,
 };
 
 

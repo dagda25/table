@@ -1,6 +1,7 @@
 import React from "react";
 import {connect} from "react-redux";
 import {ActionCreator} from "../../store/action";
+import PropTypes from "prop-types";
 
 const TableFilter = (props) => {
 
@@ -18,6 +19,10 @@ const TableFilter = (props) => {
       </div>
     </div>
   );
+};
+
+TableFilter.propTypes = {
+  changeFilter: PropTypes.func.isRequired,
 };
 
 

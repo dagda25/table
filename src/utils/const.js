@@ -9,7 +9,7 @@ export const APIRoute = {
 };
 
 export const settings = {
-  ITEMS_ON_PAGE: 30,
+  ITEMS_ON_PAGE: 50,
 };
 
 

@@ -1,6 +1,7 @@
 import React from "react";
 import {connect} from "react-redux";
 import {ActionCreator} from "../../store/action";
+import PropTypes from "prop-types";
 
 
 const TableHeader = (props) => {
@@ -29,6 +30,13 @@ const TableHeader = (props) => {
       </tr>
     </thead>
   );
+};
+
+TableHeader.propTypes = {
+  data: PropTypes.array.isRequired,
+  sortColumn: PropTypes.string,
+  sortOrder: PropTypes.string,
+  changeSorting: PropTypes.func.isRequired,
 };
 
 

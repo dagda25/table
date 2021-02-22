@@ -1,5 +1,6 @@
 import React from "react";
 import {connect} from "react-redux";
+import PropTypes from "prop-types";
 
 const TableRow = (props) => {
   const {row} = props;
@@ -20,6 +21,10 @@ const TableRow = (props) => {
       }
     </tr>
   );
+};
+
+TableRow.propTypes = {
+  row: PropTypes.object.isRequired,
 };
 
 
